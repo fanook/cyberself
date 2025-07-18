@@ -15,7 +15,7 @@ function Header() {
   }, [])
 
   const getPageTitle = () => {
-    switch(location.pathname) {
+    switch (location.pathname) {
       case '/': return 'NEURAL_INTERFACE.exe'
       case '/about': return 'IDENTITY_MATRIX.dat'
       case '/projects': return 'CODE_ARSENAL.bin'
@@ -32,39 +32,39 @@ function Header() {
         </div>
         <nav className="nav">
           <Link to="/" className="logo">
-            NEURAL.NET
+            yifanook.net
           </Link>
           <ul className="nav-links">
             <li>
-              <Link 
-                to="/" 
+              <Link
+                to="/"
                 className={location.pathname === '/' ? 'active' : ''}
               >
                 ./home
               </Link>
             </li>
             <li>
-              <Link 
-                to="/about" 
+              <Link
+                to="/about"
                 className={location.pathname === '/about' ? 'active' : ''}
               >
-                ./identity
+                ./whoami
               </Link>
             </li>
             <li>
-              <Link 
-                to="/projects" 
+              <Link
+                to="/projects"
                 className={location.pathname === '/projects' ? 'active' : ''}
               >
-                ./arsenal
+                ./ls projects/
               </Link>
             </li>
             <li>
-              <Link 
-                to="/contact" 
+              <Link
+                to="/contact"
                 className={location.pathname === '/contact' ? 'active' : ''}
               >
-                ./connect
+                ./ping contact
               </Link>
             </li>
           </ul>

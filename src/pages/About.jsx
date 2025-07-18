@@ -1,53 +1,36 @@
 import { useState, useEffect } from 'react'
 
 function About() {
-  const [activePhilosophy, setActivePhilosophy] = useState(0)
   const [matrixRain, setMatrixRain] = useState([])
-
-  const philosophies = [
-    {
-      title: "代码即艺术",
-      content: "我相信编程不仅仅是逻辑的堆砌，更是一种艺术表达。每一行代码都应该优雅、简洁，如同诗歌般富有韵律。好的代码不仅能解决问题，更能启发思考。",
-      icon: "🎨"
-    },
-    {
-      title: "技术为人服务",
-      content: "技术的终极目标是让人类生活更美好。我开发的每一个应用都致力于解决真实的问题，提升用户体验，而不是为了炫技而存在。",
-      icon: "🤝"
-    },
-    {
-      title: "持续进化",
-      content: "在这个快速变化的数字时代，停滞就意味着倒退。我始终保持学习的热情，拥抱新技术，同时也不忘记基础的重要性。",
-      icon: "🚀"
-    },
-    {
-      title: "开源精神",
-      content: "知识因分享而增值。我积极参与开源社区，相信协作的力量能够创造出超越个人能力的伟大作品。",
-      icon: "🌍"
-    }
-  ]
 
   const experiences = [
     {
-      role: "首席技术架构师",
-      company: "QuantumTech Labs",
-      period: "2023 - 至今",
-      description: "领导技术团队开发下一代AI驱动的应用平台，负责整体架构设计和技术决策。",
-      achievements: ["设计了支持百万用户的微服务架构", "将系统响应时间优化了85%", "建立了完整的DevOps流程"]
+      role: "product.creator.async()",
+      company: "/future/innovation/lab",
+      period: "age(27) - age(∞).loading...",
+      description: "async function createMagic() { while(true) { await inspire(); build(); impact(); } }",
+      achievements: ["apps.meaningful++", "users.smile.trigger()", "world.change.contribute()"]
     },
     {
-      role: "高级全栈工程师",
-      company: "CyberInnovate Inc.",
-      period: "2021 - 2023",
-      description: "专注于移动应用开发和跨平台解决方案，参与多个获奖产品的核心开发。",
-      achievements: ["开发的应用获得Google Play年度最佳应用", "建立了公司的移动开发标准", "指导了15名初级开发者"]
+      role: "senior.game.developer()",
+      company: "/realm/interactive/studios",
+      period: "age(25) - age(27).current",
+      description: "while(life.balance()) { code.craft(); mountain.climb(); lens.capture(); }",
+      achievements: ["body.strength.level++", "camera.skills.unlock()", "peak.conquered += 0"]
     },
     {
-      role: "创新实验室研究员",
-      company: "TechFuture Research",
-      period: "2019 - 2021",
-      description: "探索前沿技术在实际应用中的可能性，专注于AR/VR和机器学习领域。",
-      achievements: ["发表了3篇技术论文", "获得2项技术专利", "原型产品获得CES创新奖"]
+      role: "game.engine.architect()",
+      company: "/digital/entertainment/corp",
+      period: "age(22) - age(25).evolve",
+      description: "for(let year = 0; year < 3; year++) { worlds.create(); players.delight(); }",
+      achievements: ["fps.optimize() > 60", "memory.leak = null", "if err != nil"]
+    },
+    {
+      role: "student.prototype.exe",
+      company: "/university/knowledge/base",
+      period: "age(0) - age(22).graduate",
+      description: "while(knowledge.isEmpty()) { learn(); practice(); dream(); }",
+      achievements: ["programming.skills.unlock()", "foundation.solid = true", "future.vision.set()"]
     }
   ]
 
@@ -55,7 +38,7 @@ function About() {
     // 创建矩阵雨效果
     const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン'
     const drops = []
-    
+
     for (let i = 0; i < 50; i++) {
       drops.push({
         id: i,
@@ -65,7 +48,7 @@ function About() {
         speed: Math.random() * 2 + 1
       })
     }
-    
+
     setMatrixRain(drops)
 
     const interval = setInterval(() => {
@@ -82,7 +65,7 @@ function About() {
   return (
     <div style={{ position: 'relative' }}>
       {/* 矩阵雨背景 */}
-      <div style={{ 
+      <div style={{
         position: 'fixed',
         top: 0,
         left: 0,
@@ -112,7 +95,7 @@ function About() {
       {/* 身份验证界面 */}
       <section className="section" style={{ paddingTop: '120px' }}>
         <div className="container">
-          <div style={{ 
+          <div style={{
             background: 'rgba(0, 0, 0, 0.9)',
             border: '2px solid #00ff88',
             padding: '30px',
@@ -122,16 +105,19 @@ function About() {
             <div style={{ color: '#00ff88', marginBottom: '15px' }}>
               {'>'} whoami --detailed --philosophy
             </div>
-            <div style={{ color: '#ffffff', fontSize: '14px', lineHeight: '1.6' }}>
-              User: DIGITAL_ARCHITECT<br/>
-              Status: ONLINE<br/>
-              Location: 数字维度 ∞<br/>
-              Mission: 用代码改变世界<br/>
-              Philosophy: 技术与人文的完美融合
+            <div style={{ color: '#ffffff', fontSize: '12px', lineHeight: '1.4' }}>
+              User: DIGITAL_ARCHITECT<br />
+              Status: ONLINE<br />
+              Location: /dev/null && /dev/random<br />
+              Mission: while(true) {`{ create(); }`}<br />
+              Philosophy: if (code.isArt()) return true;<br />
+              Runtime: Exception in thread "life": NullPointerException<br />
+              Memory: Stack overflow in dreams.exe<br />
+              Process: sudo rm -rf /problems/*
             </div>
           </div>
 
-          <h1 className="glitch neon" data-text="IDENTITY MATRIX" style={{ 
+          <h1 className="glitch neon" data-text="IDENTITY MATRIX" style={{
             textAlign: 'center',
             fontSize: '3rem',
             marginBottom: '3rem',
@@ -142,95 +128,24 @@ function About() {
         </div>
       </section>
 
-      {/* 核心理念 */}
-      <section className="section">
-        <div className="container">
-          <h2 className="neon" style={{ 
-            textAlign: 'center',
-            marginBottom: '3rem',
-            fontSize: '2rem',
-            fontFamily: 'JetBrains Mono, monospace'
-          }}>
-            {'<'} CORE_BELIEFS {'/>'} 
-          </h2>
 
-          <div style={{ 
-            display: 'grid',
-            gridTemplateColumns: '300px 1fr',
-            gap: '3rem',
-            maxWidth: '1000px',
-            margin: '0 auto'
-          }}>
-            {/* 理念导航 */}
-            <div>
-              {philosophies.map((philosophy, index) => (
-                <div
-                  key={index}
-                  onClick={() => setActivePhilosophy(index)}
-                  className="cyber-card"
-                  style={{
-                    marginBottom: '1rem',
-                    cursor: 'none',
-                    background: activePhilosophy === index ? 'rgba(0, 255, 136, 0.1)' : 'rgba(0, 0, 0, 0.8)',
-                    border: activePhilosophy === index ? '2px solid #00ff88' : '1px solid #333',
-                    transition: 'all 0.3s ease'
-                  }}
-                >
-                  <div style={{ 
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '1rem'
-                  }}>
-                    <span style={{ fontSize: '2rem' }}>{philosophy.icon}</span>
-                    <span style={{ 
-                      fontFamily: 'JetBrains Mono, monospace',
-                      fontSize: '14px',
-                      color: activePhilosophy === index ? '#00ff88' : '#fff'
-                    }}>
-                      {philosophy.title}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
 
-            {/* 理念内容 */}
-            <div className="cyber-card" style={{ minHeight: '300px' }}>
-              <h3 style={{ 
-                color: '#00ff88',
-                marginBottom: '1rem',
-                fontSize: '1.5rem',
-                fontFamily: 'JetBrains Mono, monospace'
-              }}>
-                {philosophies[activePhilosophy].icon} {philosophies[activePhilosophy].title}
-              </h3>
-              <p style={{ 
-                lineHeight: '1.8',
-                fontSize: '16px',
-                color: '#ccc'
-              }}>
-                {philosophies[activePhilosophy].content}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* 职业轨迹 */}
       <section className="section">
         <div className="container">
-          <h2 className="neon" style={{ 
+          <h2 className="neon" style={{
             textAlign: 'center',
             marginBottom: '3rem',
             fontSize: '2rem',
             fontFamily: 'JetBrains Mono, monospace'
           }}>
-            {'<'} CAREER_TIMELINE {'/>'} 
+            {'<'} CAREER_TIMELINE {'/>'}
           </h2>
 
           <div style={{ maxWidth: '900px', margin: '0 auto' }}>
             {experiences.map((exp, index) => (
-              <div key={index} className="cyber-card" style={{ 
+              <div key={index} className="cyber-card" style={{
                 marginBottom: '2rem',
                 position: 'relative',
                 paddingLeft: '60px'
@@ -246,7 +161,7 @@ function About() {
                   borderRadius: '50%',
                   boxShadow: '0 0 20px #00ff88'
                 }} />
-                
+
                 {/* 时间线连接线 */}
                 {index < experiences.length - 1 && (
                   <div style={{
@@ -259,21 +174,21 @@ function About() {
                   }} />
                 )}
 
-                <div style={{ 
+                <div style={{
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'flex-start',
                   marginBottom: '1rem'
                 }}>
                   <div>
-                    <h3 style={{ 
+                    <h3 style={{
                       color: '#00ff88',
                       marginBottom: '0.5rem',
                       fontFamily: 'JetBrains Mono, monospace'
                     }}>
                       {exp.role}
                     </h3>
-                    <p style={{ 
+                    <p style={{
                       color: '#ff0088',
                       fontSize: '14px',
                       fontFamily: 'JetBrains Mono, monospace'
@@ -281,7 +196,7 @@ function About() {
                       {exp.company}
                     </p>
                   </div>
-                  <span style={{ 
+                  <span style={{
                     color: '#666',
                     fontSize: '12px',
                     fontFamily: 'JetBrains Mono, monospace'
@@ -290,7 +205,7 @@ function About() {
                   </span>
                 </div>
 
-                <p style={{ 
+                <p style={{
                   marginBottom: '1rem',
                   lineHeight: '1.6',
                   color: '#ccc'
@@ -299,7 +214,7 @@ function About() {
                 </p>
 
                 <div>
-                  <div style={{ 
+                  <div style={{
                     color: '#00ff88',
                     fontSize: '12px',
                     marginBottom: '10px',
@@ -307,20 +222,20 @@ function About() {
                   }}>
                     {'>'} ./achievements --list
                   </div>
-                  <ul style={{ 
+                  <ul style={{
                     listStyle: 'none',
                     padding: 0,
                     margin: 0
                   }}>
                     {exp.achievements.map((achievement, i) => (
-                      <li key={i} style={{ 
+                      <li key={i} style={{
                         color: '#ccc',
                         fontSize: '14px',
                         marginBottom: '5px',
                         paddingLeft: '20px',
                         position: 'relative'
                       }}>
-                        <span style={{ 
+                        <span style={{
                           position: 'absolute',
                           left: '0',
                           color: '#00ff88'
@@ -338,10 +253,107 @@ function About() {
         </div>
       </section>
 
+      {/* 技能矩阵 */}
+      <section className="section">
+        <div className="container">
+          <h2 className="neon" style={{
+            textAlign: 'center',
+            marginBottom: '3rem',
+            fontSize: '2rem',
+            fontFamily: 'JetBrains Mono, monospace'
+          }}>
+            {'<'} SKILL_MATRIX {'/>'}
+          </h2>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '2rem',
+            marginBottom: '4rem'
+          }}>
+            {[
+              {
+                title: 'FRONTEND_WIZARD',
+                skills: ['div.center-me', 'useState is life', 'CSS-in-JS chaos', 'async/await heaven', 'bundle.js: 2MB'],
+                level: 95
+              },
+              {
+                title: 'BACKEND_NINJA',
+                skills: ['null pointer panic', 'goroutine leak', 'SELECT * FROM hell', 'docker-compose up -d', '500 Internal Mood'],
+                level: 88
+              },
+              {
+                title: 'MOBILE_SURVIVOR',
+                skills: ['Xcode: 40GB', 'Android: API 33', 'Flutter: Hot Reload', 'iOS: Rejected', 'Gradle: Building...'],
+                level: 82
+              }
+            ].map((category, index) => (
+              <div key={index} className="cyber-card">
+                <h3 style={{
+                  color: '#00ff88',
+                  marginBottom: '1rem',
+                  fontFamily: 'JetBrains Mono, monospace'
+                }}>
+                  {category.title}
+                </h3>
+
+                <div style={{ marginBottom: '1rem' }}>
+                  <div style={{
+                    background: '#333',
+                    height: '8px',
+                    borderRadius: '4px',
+                    overflow: 'hidden'
+                  }}>
+                    <div style={{
+                      background: 'linear-gradient(90deg, #ff0088, #00ff88)',
+                      height: '100%',
+                      width: `${category.level}%`,
+                      animation: `loadBar 2s ease ${index * 0.5}s forwards`,
+                      transform: 'translateX(-100%)'
+                    }} />
+                  </div>
+                  <div style={{
+                    textAlign: 'right',
+                    fontSize: '12px',
+                    color: '#666',
+                    marginTop: '5px'
+                  }}>
+                    {category.level}%
+                  </div>
+                </div>
+
+                <div style={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  gap: '0.5rem'
+                }}>
+                  {category.skills.map(skill => (
+                    <span key={skill} style={{
+                      background: 'rgba(0, 255, 136, 0.1)',
+                      border: '1px solid #00ff88',
+                      padding: '4px 8px',
+                      fontSize: '12px',
+                      fontFamily: 'JetBrains Mono, monospace'
+                    }}>
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
       <style jsx>{`
         @keyframes fadeInOut {
           0%, 100% { opacity: 0.3; }
           50% { opacity: 1; }
+        }
+        
+        @keyframes loadBar {
+          to { transform: translateX(0); }
         }
       `}</style>
     </div>
