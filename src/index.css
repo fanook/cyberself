@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #00ff88;
+  --secondary-color: #ff0088;
+  --accent-color: #0088ff;
+  --text-color: #ffffff;
+  --text-light: #cccccc;
+  --bg-color: #0a0a0a;
+  --card-bg: rgba(0, 0, 0, 0.8);
+  --border-color: #333333;
+  --shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'JetBrains Mono', monospace;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  overflow-x: hidden;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00ff88, #ff0088);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ff0088, #00ff88);
+}
+
+/* 选择文本样式 */
+::selection {
+  background: rgba(0, 255, 136, 0.3);
+  color: #ffffff;
+}

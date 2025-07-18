@@ -1,0 +1,148 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(20px);
+  border-bottom: 2px solid #00ff88;
+  z-index: 1000;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  position: relative;
+}
+
+.nav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #00ff88, transparent);
+  animation: scanLine 3s linear infinite;
+}
+
+@keyframes scanLine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #00ff88;
+  text-decoration: none;
+  position: relative;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.logo::before {
+  content: '> ';
+  color: #ff0088;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 0;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #333;
+  border-radius: 0;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  display: block;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  position: relative;
+  border-right: 1px solid #333;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.nav-links li:last-child a {
+  border-right: none;
+}
+
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #ff0088, #00ff88);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.nav-links a:hover::before,
+.nav-links a.active::before {
+  width: 100%;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #000000;
+  text-shadow: none;
+}
+
+.nav-links a.active {
+  background: rgba(0, 255, 136, 0.1);
+  color: #00ff88;
+}
+
+.terminal-prompt {
+  position: absolute;
+  top: -30px;
+  right: 0;
+  font-size: 12px;
+  color: #666;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.terminal-prompt::before {
+  content: 'user@portfolio:~$ ';
+  color: #00ff88;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .nav-links a {
+    padding: 10px 15px;
+    font-size: 12px;
+  }
+  
+  .terminal-prompt {
+    display: none;
+  }
+}
