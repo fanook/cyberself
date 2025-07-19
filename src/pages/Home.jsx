@@ -135,30 +135,14 @@ function Home() {
         position: 'relative'
       }}>
         <div className="container">
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: '4rem',
-            alignItems: 'center'
-          }}>
+          <div className="home-layout">
             {/* 左侧：个人信息 */}
             <div>
-              <h1 className="neon" style={{
-                fontSize: '3rem',
-                marginBottom: '1rem',
-                fontFamily: 'JetBrains Mono, monospace'
-              }}>
+              <h1 className="neon home-title">
                 DIGITAL ARCHITECT
               </h1>
 
-              <div style={{
-                background: 'rgba(0, 0, 0, 0.8)',
-                border: '1px solid #00ff88',
-                padding: '20px',
-                marginBottom: '2rem',
-                fontFamily: 'JetBrains Mono, monospace',
-                fontSize: '12px'
-              }}>
+              <div className="terminal-box">
                 <div style={{ color: '#00ff88', marginBottom: '10px' }}>
                   {'>'} cat ./identity.txt
                 </div>
@@ -171,53 +155,16 @@ function Home() {
                 </div>
               </div>
 
-              <div style={{ 
-                color: '#666', 
-                fontSize: '14px',
-                fontFamily: 'JetBrains Mono, monospace',
-                marginTop: '2rem'
-              }}>
+              <div className="scroll-hint">
                 {'>'} scroll --down to explore more content...
               </div>
             </div>
 
             {/* 右侧：3D 头像区域 */}
-            <div style={{
-              position: 'relative',
-              height: '500px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}>
-              <div style={{
-                width: '300px',
-                height: '300px',
-                background: 'linear-gradient(45deg, #ff0088, #00ff88)',
-                borderRadius: '50%',
-                position: 'relative',
-                animation: 'rotate 20s linear infinite',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}>
-                <div style={{
-                  width: '280px',
-                  height: '280px',
-                  background: '#0a0a0a',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}>
-                  <pre style={{
-                    color: '#00ff88',
-                    fontSize: '20px',
-                    fontFamily: 'JetBrains Mono, monospace',
-                    lineHeight: '1',
-                    textAlign: 'center',
-                    margin: 0,
-                    transition: 'all 0.15s ease-in-out'
-                  }}>
+            <div className="avatar-container">
+              <div className="avatar-circle">
+                <div className="avatar-inner">
+                  <pre className="avatar-text">
 {`  ${isScanning ? '▲' : 'Y'}   ${isScanning ? '▲' : 'Y'}
  ┌─────────┐
  │ ${isScanning ? '▓' : isBlinking ? '─' : '◉'} ┃ ${isScanning ? '▓' : isBlinking ? '─' : '◉'} │

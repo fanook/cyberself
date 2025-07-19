@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Favicon</title>
+</head>
+<body>
+    <canvas id="canvas" width="32" height="32"></canvas>
+    <br>
+    <a id="download" download="favicon.png">Download PNG</a>
+    
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Fill background
+        ctx.fillStyle = '#0a0a0a';
+        ctx.fillRect(0, 0, 32, 32);
+        
+        // Set font and color
+        ctx.fillStyle = '#00ff88';
+        ctx.font = '3px monospace';
+        ctx.textAlign = 'center';
+        
+        // Draw simplified robot
+        // Antennas
+        ctx.fillText('Y', 10, 6);
+        ctx.fillText('Y', 22, 6);
+        
+        // Head box (simplified)
+        ctx.strokeStyle = '#00ff88';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(8, 8, 16, 16);
+        
+        // Eyes
+        ctx.fillStyle = '#00ff88';
+        ctx.fillRect(11, 13, 2, 2);
+        ctx.fillRect(19, 13, 2, 2);
+        
+        // Mouth
+        ctx.fillRect(15, 19, 2, 1);
+        
+        // Generate download link
+        canvas.toBlob(function(blob) {
+            const url = URL.createObjectURL(blob);
+            document.getElementById('download').href = url;
+        });
+    </script>
+</body>
+</html>
