@@ -84,7 +84,7 @@ function Header() {
                 className={activeSection === 'projects' ? 'active' : ''}
                 onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }}
               >
-                ./ls projects/
+                ./projects
               </a>
             </li>
             <li>
@@ -93,7 +93,7 @@ function Header() {
                 className={activeSection === 'contact' ? 'active' : ''}
                 onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}
               >
-                ./ping contact
+                ./contact
               </a>
             </li>
           </ul>

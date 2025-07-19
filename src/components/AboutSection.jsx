@@ -199,7 +199,7 @@ Process: sudo rm -rf /problems/*`
       {showContent && (
         <div className="section">
           <div className="container">
-          <h2 className="neon" style={{
+          <h2 className="neon data-stream" style={{
             textAlign: 'center',
             marginBottom: '3rem',
             fontSize: '2rem',
@@ -210,7 +210,7 @@ Process: sudo rm -rf /problems/*`
 
           <div style={{ maxWidth: '900px', margin: '0 auto' }}>
             {experiences.map((exp, index) => (
-              <div key={index} className="cyber-card" style={{
+              <div key={index} className={`cyber-card hologram-appear scan-reveal appear-delay-${index + 2}`} style={{
                 marginBottom: '2rem',
                 position: 'relative',
                 paddingLeft: '60px'
@@ -320,7 +320,7 @@ Process: sudo rm -rf /problems/*`
           {/* 技能矩阵 */}
           <div className="section">
             <div className="container">
-            <h2 className="neon" style={{
+            <h2 className="neon data-stream" style={{
               textAlign: 'center',
               marginBottom: '3rem',
               fontSize: '2rem',
@@ -352,7 +352,7 @@ Process: sudo rm -rf /problems/*`
                   level: 82
                 }
               ].map((category, index) => (
-                <div key={index} className="cyber-card">
+                <div key={index} className={`cyber-card hologram-appear pixel-jitter appear-delay-${index + 7}`}>
                   <h3 style={{
                     color: '#00ff88',
                     marginBottom: '1rem',

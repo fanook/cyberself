@@ -220,11 +220,11 @@ drwxr-xr-x ${apps.filter(a => a.status === 'DEVELOPMENT').length} in_development
             marginBottom: '3rem',
             flexWrap: 'wrap'
           }}>
-            {categories.map(category => (
+            {categories.map((category, index) => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className="terminal-btn"
+                className={`terminal-btn hologram-appear appear-delay-${index + 1}`}
                 style={{
                   background: selectedCategory === category ? '#00ff88' : 'transparent',
                   color: selectedCategory === category ? '#000' : '#00ff88',
@@ -241,17 +241,13 @@ drwxr-xr-x ${apps.filter(a => a.status === 'DEVELOPMENT').length} in_development
           {/* 应用展示 */}
           <div className="section">
             <div className="container">
-            <div style={{ 
+            <div className="apps-grid" style={{ 
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
               gap: '2rem'
             }}>
               {filteredApps.map((app, index) => (
-                <div key={app.id} className="cyber-card" style={{
-                  animation: `slideIn 0.5s ease ${index * 0.1}s forwards`,
-                  opacity: 0,
-                  transform: 'translateY(20px)'
-                }}>
+                <div key={app.id} className={`cyber-card hologram-appear data-stream appear-delay-${Math.min(index + 2, 6)}`}>
                   {/* 应用头部 */}
                   <div style={{ 
                     display: 'flex',

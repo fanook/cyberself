@@ -154,13 +154,14 @@ Status: READY_TO_RECEIVE`
             {showContent && (
                 <div className="section">
                     <div className="container">
-                    <h2 className="neon" style={{
+                    <h2 className="neon data-stream contact-title" style={{
                         textAlign: 'center',
                         marginBottom: '3rem',
                         fontSize: '2rem',
                         fontFamily: 'JetBrains Mono, monospace'
                     }}>
-                        {'<'} COMMUNICATION_PROTOCOLS {'/>'}
+                        <span className="desktop-title">{'<'} COMMUNICATION_PROTOCOLS {'/>'}</span>
+                        <span className="mobile-title">{'<'} COMM_PROTOCOLS {'/>'}</span>
                     </h2>
 
                     <div style={{
@@ -172,15 +173,12 @@ Status: READY_TO_RECEIVE`
                         {contactMethods.map((method, index) => (
                             <div
                                 key={method.id}
-                                className="cyber-card"
+                                className={`cyber-card hologram-appear scan-reveal appear-delay-${index + 2}`}
                                 onClick={() => handleMethodSelect(method.id)}
                                 style={{
                                     cursor: 'pointer',
                                     background: formData.method === method.id ? 'rgba(0, 255, 136, 0.1)' : 'rgba(0, 0, 0, 0.8)',
-                                    border: formData.method === method.id ? '2px solid #00ff88' : '1px solid #333',
-                                    animation: `slideUp 0.5s ease ${index * 0.1}s forwards`,
-                                    opacity: 0,
-                                    transform: 'translateY(20px)'
+                                    border: formData.method === method.id ? '2px solid #00ff88' : '1px solid #333'
                                 }}
                             >
                                 <div style={{
