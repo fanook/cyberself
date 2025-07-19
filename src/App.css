@@ -78,7 +78,7 @@ body {
 /* 故障效果 */
 .glitch {
   position: relative;
-  animation: glitch 2s infinite;
+  animation: glitch 10s infinite; /* 进一步放慢到10秒 */
 }
 
 .glitch::before,
@@ -92,35 +92,35 @@ body {
 }
 
 .glitch::before {
-  animation: glitch-1 0.5s infinite;
-  color: #ff0088;
+  animation: glitch-1 3s infinite; /* 进一步放慢到3秒 */
+  color: #ff0088; /* 恢复不透明，避免模糊 */
   z-index: -1;
 }
 
 .glitch::after {
-  animation: glitch-2 0.5s infinite;
-  color: #00ff88;
+  animation: glitch-2 3s infinite; /* 进一步放慢到3秒 */
+  color: #00ff88; /* 恢复不透明，避免模糊 */
   z-index: -2;
 }
 
 @keyframes glitch {
   0%, 100% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
+  20% { transform: translate(-0.5px, 0.5px); }
+  40% { transform: translate(-0.5px, -0.5px); }
+  60% { transform: translate(0.5px, 0.5px); }
+  80% { transform: translate(0.5px, -0.5px); }
 }
 
 @keyframes glitch-1 {
   0%, 100% { transform: translate(0); }
-  10% { transform: translate(-2px, -2px); }
-  20% { transform: translate(2px, 2px); }
+  10% { transform: translate(-0.3px, -0.3px); }
+  20% { transform: translate(0.3px, 0.3px); }
 }
 
 @keyframes glitch-2 {
   0%, 100% { transform: translate(0); }
-  10% { transform: translate(2px, 2px); }
-  20% { transform: translate(-2px, -2px); }
+  10% { transform: translate(0.3px, 0.3px); }
+  20% { transform: translate(-0.3px, -0.3px); }
 }
 
 /* 霓虹灯效果 */
@@ -131,13 +131,15 @@ body {
     0 0 10px #00ff88,
     0 0 15px #00ff88,
     0 0 20px #00ff88;
-  animation: neonFlicker 2s infinite alternate;
+  animation: neonFlicker 4s infinite alternate; /* 放慢霓虹灯闪烁 */
 }
 
 @keyframes neonFlicker {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
-}
+  25% { opacity: 0.9; }
+  50% { opacity: 0.85; }
+  75% { opacity: 0.95; }
+} /* 让霓虹灯闪烁更平缓 */
 
 /* 终端风格按钮 */
 .terminal-btn {

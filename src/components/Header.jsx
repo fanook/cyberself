@@ -1,10 +1,9 @@
-import { Link, useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import './Header.css'
 
 function Header() {
-  const location = useLocation()
   const [currentTime, setCurrentTime] = useState(new Date())
+  const [activeSection, setActiveSection] = useState('home')
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -14,13 +13,39 @@ function Header() {
     return () => clearInterval(timer)
   }, [])
 
+  // 监听滚动位置，更新活跃section
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'about', 'projects', 'contact']
+      const scrollPosition = window.scrollY + 200 // 偏移量
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const element = document.getElementById(sections[i])
+        if (element && element.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i])
+          break
+        }
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   const getPageTitle = () => {
-    switch (location.pathname) {
-      case '/': return 'NEURAL_INTERFACE.exe'
-      case '/about': return 'IDENTITY_MATRIX.dat'
-      case '/projects': return 'CODE_ARSENAL.bin'
-      case '/contact': return 'TRANSMISSION.log'
+    switch (activeSection) {
+      case 'home': return 'NEURAL_INTERFACE.exe'
+      case 'about': return 'IDENTITY_MATRIX.dat'
+      case 'projects': return 'CODE_ARSENAL.bin'
+      case 'contact': return 'TRANSMISSION.log'
       default: return 'SYSTEM.404'
+    }
+  }
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
     }
   }
 
@@ -31,41 +56,45 @@ function Header() {
           {getPageTitle()} | {currentTime.toLocaleTimeString()}
         </div>
         <nav className="nav">
-          <Link to="/" className="logo">
+          <a href="#home" className="logo" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}>
             yifanook.net
-          </Link>
+          </a>
           <ul className="nav-links">
             <li>
-              <Link
-                to="/"
-                className={location.pathname === '/' ? 'active' : ''}
+              <a
+                href="#home"
+                className={activeSection === 'home' ? 'active' : ''}
+                onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}
               >
                 ./home
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
-                to="/about"
-                className={location.pathname === '/about' ? 'active' : ''}
+              <a
+                href="#about"
+                className={activeSection === 'about' ? 'active' : ''}
+                onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}
               >
                 ./whoami
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
-                to="/projects"
-                className={location.pathname === '/projects' ? 'active' : ''}
+              <a
+                href="#projects"
+                className={activeSection === 'projects' ? 'active' : ''}
+                onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }}
               >
                 ./ls projects/
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
-                to="/contact"
-                className={location.pathname === '/contact' ? 'active' : ''}
+              <a
+                href="#contact"
+                className={activeSection === 'contact' ? 'active' : ''}
+                onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}
               >
                 ./ping contact
-              </Link>
+              </a>
             </li>
           </ul>
         </nav>

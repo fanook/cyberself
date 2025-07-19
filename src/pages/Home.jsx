@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import AboutSection from '../components/AboutSection'
+import ProjectsSection from '../components/ProjectsSection'
+import ContactSection from '../components/ContactSection'
 
 function Home() {
   const [bootSequence, setBootSequence] = useState([])
@@ -35,7 +37,7 @@ function Home() {
       } else if (!showInterface) {
         setTimeout(() => setShowInterface(true), 1000)
       }
-    }, 800)
+    }, 400) // 加快执行速度，从800ms改为400ms
 
     return () => clearTimeout(timer)
   }, [currentLine, bootMessages.length, showInterface])
@@ -44,7 +46,7 @@ function Home() {
     if (showInterface && typedText.length < introText.length) {
       const timer = setTimeout(() => {
         setTypedText(introText.slice(0, typedText.length + 1))
-      }, 50)
+      }, 30) // 加快打字速度
       return () => clearTimeout(timer)
     }
   }, [showInterface, typedText, introText])
@@ -94,23 +96,29 @@ function Home() {
                 color: message.includes('[OK]') ? '#00ff88' : '#ffffff',
                 marginBottom: '10px',
                 opacity: 0,
-                animation: `fadeIn 0.5s ease ${index * 0.3}s forwards`
+                animation: `fadeIn 0.5s ease ${index * 0.2}s forwards` // 加快动画速度
               }}>
                 {message}
+                {/* 光标只在最后一行显示 */}
+                {index === bootSequence.length - 1 && (
+                  <span style={{
+                    color: '#00ff88',
+                    animation: 'blink 1s infinite',
+                    marginLeft: '5px'
+                  }}>█</span>
+                )}
               </div>
             ))}
-            <div style={{
-              color: '#00ff88',
-              animation: 'blink 1s infinite',
-              display: 'inline-block'
-            }}>
-              █
-            </div>
           </div>
         </div>
-        <style jsx>{`
+        <style>{`
           @keyframes fadeIn {
             to { opacity: 1; }
+          }
+          
+          @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
           }
         `}</style>
       </div>
@@ -120,7 +128,7 @@ function Home() {
   return (
     <div>
       {/* 主界面 */}
-      <section className="section" style={{
+      <section id="home" className="section" style={{
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
@@ -135,7 +143,7 @@ function Home() {
           }}>
             {/* 左侧：个人信息 */}
             <div>
-              <h1 className="glitch neon" data-text="DIGITAL ARCHITECT" style={{
+              <h1 className="neon" style={{
                 fontSize: '3rem',
                 marginBottom: '1rem',
                 fontFamily: 'JetBrains Mono, monospace'
@@ -163,16 +171,13 @@ function Home() {
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                <Link to="/about" className="terminal-btn">
-                  ./whoami
-                </Link>
-                <Link to="/projects" className="terminal-btn">
-                  ./ls projects/
-                </Link>
-                <Link to="/contact" className="terminal-btn">
-                  ./ping contact
-                </Link>
+              <div style={{ 
+                color: '#666', 
+                fontSize: '14px',
+                fontFamily: 'JetBrains Mono, monospace',
+                marginTop: '2rem'
+              }}>
+                {'>'} scroll --down to explore more content...
               </div>
             </div>
 
@@ -242,9 +247,12 @@ function Home() {
         </div>
       </section>
 
+      {/* 其他页面作为sections */}
+      <AboutSection />
+      <ProjectsSection />
+      <ContactSection />
 
-
-      <style jsx>{`
+      <style>{`
         @keyframes rotate {
           from { transform: rotate(0deg); }
           to { transform: rotate(360deg); }
@@ -257,6 +265,11 @@ function Home() {
         
         @keyframes loadBar {
           to { transform: translateX(0); }
+        }
+        
+        @keyframes blink {
+          0%, 50% { opacity: 1; }
+          51%, 100% { opacity: 0; }
         }
       `}</style>
     </div>
