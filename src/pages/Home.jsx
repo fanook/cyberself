@@ -6,6 +6,9 @@ function Home() {
   const [currentLine, setCurrentLine] = useState(0)
   const [showInterface, setShowInterface] = useState(false)
   const [typedText, setTypedText] = useState('')
+  const [isBlinking, setIsBlinking] = useState(false)
+  const [isTalking, setIsTalking] = useState(false)
+  const [isScanning, setIsScanning] = useState(false)
 
   const bootMessages = [
     'user@yifanook:~$ sudo systemctl start neural-network.service',
@@ -45,6 +48,32 @@ function Home() {
       return () => clearTimeout(timer)
     }
   }, [showInterface, typedText, introText])
+
+  // 随机动画效果
+  useEffect(() => {
+    if (!showInterface) return
+
+    const randomAnimation = () => {
+      const rand = Math.random()
+      
+      if (rand > 0.8) {
+        // 扫描模式 - 最酷的效果
+        setIsScanning(true)
+        setTimeout(() => setIsScanning(false), 1200)
+      } else if (rand > 0.6) {
+        // 眨眼
+        setIsBlinking(true)
+        setTimeout(() => setIsBlinking(false), 180)
+      } else if (rand > 0.4) {
+        // 说话
+        setIsTalking(true)
+        setTimeout(() => setIsTalking(false), 800)
+      }
+    }
+
+    const timer = setInterval(randomAnimation, 2000 + Math.random() * 2000)  // 2-4秒触发一次，更自然
+    return () => clearInterval(timer)
+  }, [showInterface])
 
   if (!showInterface) {
     return (
@@ -177,25 +206,18 @@ function Home() {
                 }}>
                   <pre style={{
                     color: '#00ff88',
-                    fontSize: '14px',
+                    fontSize: '20px',
                     fontFamily: 'JetBrains Mono, monospace',
                     lineHeight: '1',
                     textAlign: 'center',
-                    margin: 0
+                    margin: 0,
+                    transition: 'all 0.15s ease-in-out'
                   }}>
-{`    ╭─────╮
-    │ ◉ ◉ │
-    │  ─  │
-    ╰─────╯
-   ╭───┬───╮
-   │ █ │ █ │
-   ╰───┴───╯
-    ╱│╲ │ ╱│╲
-   ╱ │ ╲│╱ │ ╲
-  ╱  │  ╳  │  ╲
-     │ ╱ ╲ │
-     │╱   ╲│
-     ╱     ╲`}
+{`  ${isScanning ? '▲' : 'Y'}   ${isScanning ? '▲' : 'Y'}
+ ┌─────────┐
+ │ ${isScanning ? '▓' : isBlinking ? '─' : '◉'} ┃ ${isScanning ? '▓' : isBlinking ? '─' : '◉'} │
+ │   ${isTalking ? '>' : '<'}   │
+ └─────────┘`}
                   </pre>
                 </div>
               </div>
