@@ -43,7 +43,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: 
+  background:
     radial-gradient(circle at 20% 80%, #120458 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, #421a5c 0%, transparent 50%),
     radial-gradient(circle at 40% 40%, #1a0845 0%, transparent 50%);
@@ -62,7 +62,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
+  background-image:
     linear-gradient(rgba(0, 255, 136, 0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 255, 136, 0.1) 1px, transparent 1px);
   background-size: 50px 50px;
@@ -126,7 +126,7 @@ body {
 /* 霓虹灯效果 */
 .neon {
   color: #00ff88;
-  text-shadow: 
+  text-shadow:
     0 0 5px #00ff88,
     0 0 10px #00ff88,
     0 0 15px #00ff88,
@@ -299,104 +299,104 @@ body {
     gap: 2rem;
     text-align: center;
   }
-  
+
   .home-title {
     font-size: 2rem;
   }
-  
+
   .terminal-box {
     font-size: 10px;
     padding: 15px;
   }
-  
+
   .scroll-hint {
     font-size: 12px;
   }
-  
+
   .avatar-container {
     height: 250px;
     order: -1; /* 在移动端将头像放到上面 */
   }
-  
+
   .avatar-circle {
     width: 200px;
     height: 200px;
   }
-  
+
   .avatar-inner {
     width: 185px;
     height: 185px;
   }
-  
+
   .avatar-text {
     font-size: 14px;
   }
-  
+
   .container {
     padding: 0 15px;
   }
-  
+
   .section {
     padding: 60px 0;
   }
-  
+
   /* 其他section标题 */
   .neon {
-    fontSize: 2rem !important;
+    font-size: 2rem !important;
   }
-  
+
   /* cyber-card 移动端优化 */
   .cyber-card {
     padding: 20px;
-    marginBottom: 1.5rem;
+    margin-bottom: 1.5rem;
   }
-  
+
   /* 网格布局移动端 */
   div[style*="gridTemplateColumns"] {
     gridTemplateColumns: 1fr !important;
     gap: 1.5rem !important;
   }
-  
+
   /* 终端框移动端 */
   div[style*="fontFamily: 'JetBrains Mono'"] {
-    fontSize: 10px !important;
+    font-size: 10px !important;
     padding: 15px !important;
   }
-  
+
   /* Header移动端优化 */
   .header {
     padding: 10px 0;
   }
-  
+
   .nav-links {
     font-size: 12px;
     gap: 1rem;
   }
-  
+
   /* 按钮移动端 */
   .terminal-btn {
     padding: 8px 16px;
     font-size: 12px;
   }
-  
+
   /* 字体大小调整 */
   h1 {
     font-size: 2rem !important;
   }
-  
+
   h2 {
     font-size: 1.5rem !important;
   }
-  
+
   h3 {
     font-size: 1.2rem !important;
   }
-  
+
   /* 间距调整 */
   .section {
     padding: 40px 0;
   }
-  
+
   /* 技能条移动端 */
   div[style*="gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr)'"] {
     gridTemplateColumns: 1fr !important;
@@ -408,21 +408,21 @@ body {
   .home-layout {
     gap: 3rem;
   }
-  
+
   .home-title {
     font-size: 2.5rem;
   }
-  
+
   .avatar-circle {
     width: 250px;
     height: 250px;
   }
-  
+
   .avatar-inner {
     width: 235px;
     height: 235px;
   }
-  
+
   .avatar-text {
     font-size: 16px;
   }
