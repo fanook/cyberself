@@ -17,7 +17,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
+  /*padding: 1rem 0;*/
   position: relative;
 }
 
@@ -62,7 +62,7 @@
   list-style: none;
   gap: 0;
   background: rgba(0, 0, 0, 0.5);
-  border: 1px solid #333;
+  /*border: 1px solid #333;*/
   border-radius: 0;
 }
 
@@ -79,7 +79,7 @@
   font-size: 14px;
   transition: all 0.3s ease;
   position: relative;
-  border-right: 1px solid #333;
+  /*border-right: 1px solid #333;*/
   font-family: 'JetBrains Mono', monospace;
 }
 
@@ -133,18 +133,18 @@
   .header {
     padding: 0 10px;
   }
-  
+
   .nav {
     flex-direction: column;
-    gap: 0.5rem;
-    padding: 0.75rem 0;
+    /*gap: 0.5rem;*/
+    /*padding: 0.75rem 0;*/
   }
-  
+
   .logo {
     font-size: 1rem;
     text-align: center;
   }
-  
+
   .nav-links {
     width: 100%;
     justify-content: center;
@@ -153,12 +153,12 @@
     max-width: 100%;
     overflow: hidden;
   }
-  
+
   .nav-links li {
     flex: 1;
     min-width: 0;
   }
-  
+
   .nav-links a {
     padding: 8px 12px;
     font-size: 11px;
@@ -169,7 +169,7 @@
     width: 100%;
     box-sizing: border-box;
   }
-  
+
   .terminal-prompt {
     display: none;
   }
@@ -177,10 +177,10 @@
 
 @media (max-width: 480px) {
   .nav-links a {
-    padding: 8px 8px;
+    /*padding: 8px 8px;*/
     font-size: 10px;
   }
-  
+
   .logo {
     font-size: 0.9rem;
   }
