@@ -17,7 +17,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /*padding: 1rem 0;*/
+  padding: 1rem 0;
   position: relative;
 }
 
@@ -136,8 +136,8 @@
 
   .nav {
     flex-direction: column;
-    /*gap: 0.5rem;*/
-    /*padding: 0.75rem 0;*/
+    gap: 0.5rem;
+    padding: 0.75rem 0;
   }
 
   .logo {
@@ -177,7 +177,7 @@
 
 @media (max-width: 480px) {
   .nav-links a {
-    /*padding: 8px 8px;*/
+    padding: 8px 8px;
     font-size: 10px;
   }
 
